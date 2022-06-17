@@ -1,0 +1,3 @@
+jenkins:
+  systemMessage: "bundle4"
+  numExecutors: 1
