@@ -1,0 +1,9 @@
+apiVersion: "1"
+id: "enp-cipf-system-tests"
+description: "Jenkins controller for the AM ENP CIPF system tests"
+parent: "bricks-dev"
+version: "14"
+items:
+  - "items.yaml"
+jcasc:
+  - "jenkins.yaml"

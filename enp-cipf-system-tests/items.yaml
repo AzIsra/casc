@@ -1,0 +1,66 @@
+removeStrategy:
+  rbac: SYNC
+  items: NONE
+items:
+  - kind: organizationFolder
+    displayName: CIPF-SystemTests
+    name: CIPF-SystemTests
+    buildStrategies:
+    - buildTags:
+        atMostDays: '7'
+        atLeastDays: ''
+    - buildChangeRequests:
+        ignoreUntrustedChanges: true
+        ignoreTargetOnlyChanges: false
+    - buildRegularBranches: {
+        }
+    navigators:
+      - github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+            - gitHubBranchDiscovery:
+                strategyId: 1
+            - gitHubPullRequestDiscovery:
+                strategyId: 1
+            - gitHubTagDiscovery: {}
+            - gitHubSshCheckout:
+                credentialsId: uidt820z_ssh
+            - cleanAfterCheckoutTrait:
+                extension:
+                  cleanCheckout:
+                    deleteUntrackedNestedRepositories: true
+            - gitLFSPullTrait: {}
+          repoOwner: CIPF-SystemTests
+          credentialsId: github-app-cjoc-enp-cipf-system-tests-jenkins-cipf-systemtests
+    projectFactories:
+      - workflowMultiBranchProjectFactory:
+          scriptPath: Jenkinsfile
+    trigger:
+      periodicFolderTrigger:
+        interval: 1d
+    strategy:
+      allBranchesSame: {}
+    properties:
+      - organizationChildHealthMetricsProperty:
+          templates:
+            - worstChildHealthMetric:
+                recursive: true
+            - averageChildHealthMetric: {}
+            - jobStatusHealthMetric:
+                unstable: true
+                countVirginJobs: false
+                failure: true
+                success: true
+                unbuilt: true
+            - projectEnabledHealthMetric: {}
+      - organizationChildOrphanedItemsProperty:
+          strategy:
+            inherit: {}
+      - organizationChildTriggersProperty:
+          templates:
+            - periodicFolderTrigger:
+                interval: 1d
+      - envVars: {}
+      - kubernetesFolderProperty: {}
+      - noTriggerOrganizationFolderProperty:
+          branches: .*
