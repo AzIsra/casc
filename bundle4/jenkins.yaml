@@ -1,3 +1,733 @@
 jenkins:
-  systemMessage: "bundle4"
-  numExecutors: 1
+  agentProtocols:
+  - "Diagnostic-Ping"
+  - "JNLP4-connect"
+  - "OperationsCenter2"
+  - "Ping"
+  authorizationStrategy: "cloudBeesRoleBasedAccessControl"
+  clouds:
+  - conti:
+      apiKey: "86f4b485-ec36-4a20-92fe-d974ded59ceb"
+      cloudOverallLimit: 50
+      environmentString: "production"
+      name: "ContiCloud-CB"
+      templates:
+      - image: "C-ADAS_Generic_windows_server_2019"
+        instanceType: "cc.M"
+        label: "windows"
+        maxInstances: 180
+        maxVmAge: 12
+        name: "C-ADAS_Generic_windows_server_2019"
+        rate: 60
+        rootVolumeSize: 450
+        snapshotLabel: "C-ADAS_Generic_windows_server_2019"
+        snapshotSize: 100
+        updateSnapshotOnDelete: false
+        useSnapshot: true
+        volumeLabel: "C-ADAS_Generic_windows_server_2019"
+        volumeRetentionTime: 14
+        volumeSize: 100
+        workingDirectory: "d:\\"
+      - image: "C-ADAS_Generic_windows_server_2019"
+        instanceType: "cc.L"
+        label: "windows windows_arithWindows2"
+        maxInstances: 180
+        maxVmAge: 12
+        name: "C-ADAS_Generic_windows_server_2019_arithWindows2"
+        rate: 60
+        rootVolumeSize: 450
+        snapshotLabel: "arithWindows2"
+        snapshotSize: 100
+        updateSnapshotOnDelete: false
+        useSnapshot: true
+        volumeLabel: "C-ADAS_Generic_windows_server_2019"
+        volumeRetentionTime: 14
+        volumeSize: 100
+        workingDirectory: "d:\\"
+      - image: "C-ADAS_Generic_windows_server_2019"
+        instanceType: "cc.M"
+        label: "windows windows_arithWindows1"
+        maxInstances: 180
+        maxVmAge: 12
+        name: "C-ADAS_Generic_windows_server_2019_arithWindows1"
+        rate: 60
+        rootVolumeSize: 450
+        snapshotLabel: "arithWindows1"
+        snapshotSize: 100
+        updateSnapshotOnDelete: false
+        useSnapshot: true
+        volumeLabel: "C-ADAS_Generic_windows_server_2019"
+        volumeRetentionTime: 14
+        volumeSize: 100
+        workingDirectory: "d:\\"
+      - image: "C-ADAS_Generic_windows_server_2019"
+        instanceType: "cc.M"
+        label: "windows windows_cemWindows1"
+        maxInstances: 180
+        maxVmAge: 12
+        name: "C-ADAS_Generic_windows_server_2019_cemWindows1"
+        rate: 60
+        rootVolumeSize: 450
+        snapshotLabel: "cemWindows1"
+        snapshotSize: 150
+        updateSnapshotOnDelete: false
+        useSnapshot: true
+        volumeLabel: "C-ADAS_Generic_windows_server_2019"
+        volumeRetentionTime: 14
+        volumeSize: 100
+        workingDirectory: "d:\\"
+      - image: "C-ADAS_Generic_windows_server_2019"
+        instanceType: "cc.XL"
+        label: "windows windows_ars540Windows1"
+        maxInstances: 180
+        maxVmAge: 12
+        name: "C-ADAS_Generic_windows_server_2019_ars540Windows1"
+        rate: 60
+        rootVolumeSize: 450
+        snapshotLabel: "ars540Windows1"
+        snapshotSize: 200
+        updateSnapshotOnDelete: false
+        useSnapshot: true
+        volumeLabel: "C-ADAS_Generic_windows_server_2019"
+        volumeRetentionTime: 14
+        volumeSize: 100
+        workingDirectory: "d:\\"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  globalNodeProperties:
+  - envVars:
+      env:
+      - key: "ARTIFACTORY_RELEASE_REPO"
+        value: "c_adas_cip_release_generic_l"
+      - key: "ARTIFACTORY_REPO"
+        value: "c_adas_cip_generic_l"
+      - key: "BRICKS_DEFAULT_VERSION"
+        value: "4.14.5"
+      - key: "CENTRAL_CONFIGURATION_ENDPOINT"
+        value: "https://cip-config.cmo.conti.de/v1/cip_config"
+      - key: "CENTRAL_CONFIGURATION_ENDPOINT_V2"
+        value: "https://cip-config.cmo.conti.de/v2/configuration/cip_service_gating/conti_cloud/1.0/configurations/conti_cloud"
+      - key: "CENTRAL_CONFIGURATION_TIMEOUT"
+        value: "60"
+      - key: "KUBERNETES_CLOUD"
+        value: "aws-eks"
+      - key: "KUBERNETES_IDLE_MINUTES"
+        value: "15"
+      - key: "KUBERNETES_IDLEM"
+        value: "5"
+      - key: "KUBERNETES_SECRETS"
+        value: "regsecret.eu-prod"
+      - key: "KUBERNETES_SECRETS_ARRAY"
+        value: "['regsecret.eu-prod', 'regsecret.integration1', 'regsecret.integration1-continental-docker',\
+          \ 'regsecret.cip-docker-eu-staging', 'regsecret.cip-docker-eu-art', 'regsecret.cip-docker-eu-ads']"
+  labelAtoms:
+  - name: "ContiCloud-CB_C-ADAS_Generic_windows_server_2019_504978231"
+  - name: "alex-test"
+  - name: "built-in"
+  - name: "hcp2-ecusm-master-release-2f29-0-x-x290-4-qspvv-2c6lb-qskvv"
+  - name: "hcp2-integration-sh00-release-2f29-0-x-x290-12-txl33-jp54-grl7w"
+  - name: "hcp2-platform-mw-feature-2fhcpv-25289-2ffixsetupccp-1-sd0-zzh3x"
+  - name: "hcp2_ecusm_master_release_2F29_0_x-X290_4-qspvv"
+  - name: "hcp2_integration_sh00_release_2F29_0_x-X290_12-txl33"
+  - name: "hcp2_platform_mw_feature_2FHCPV-25289_2FfixSetupCCP_1-sd0qk"
+  - name: "master"
+  - name: "tform-mw-feature-2fvwabpt-14381-2fcreate-lum-manifests-28-j2nm6"
+  - name: "tform-mw-feature-2fvwabpt-14381-2fcreate-lum-manifests-29-01kff"
+  - name: "tform_mw_feature_2FVWABPT-14381_2Fcreate_lum_manifests_28-nmqs7"
+  - name: "tform_mw_feature_2FVWABPT-14381_2Fcreate_lum_manifests_29-q1chj"
+  - name: "windows"
+  - name: "windows_arithWindows1"
+  - name: "windows_arithWindows2"
+  - name: "windows_ars540Windows1"
+  - name: "windows_cemWindows1"
+  labelString: "master"
+  markupFormatter: "plainText"
+  mode: EXCLUSIVE
+  myViewsTabBar: "standard"
+  noUsageStatistics: true
+  nodes:
+  - permanent:
+      launcher:
+        jnlp:
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      name: "alex-test"
+      remoteFS: "D:\\remoting\\hcp2"
+      retentionStrategy: "always"
+  numExecutors: 5
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm: "operationsCenter"
+  slaveAgentPort: 50000
+  updateCenter:
+    sites:
+    - id: "virtual-cap-core-mm"
+      url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+advisor:
+  acceptToS: true
+  ccs:
+  - "alexander.bachmeier@conti.de"
+  email: "AU_UU_SM_cip_ops_shared@continental.com"
+  excludedComponents:
+  - "AgentsSystemConfiguration"
+  - "AboutUser"
+  - "AgentsJVMProcessSystemMetricsContents"
+  - "UserCount"
+  - "ConfigFileComponent"
+  - "RootCAs"
+  - "HeapUsageHistogram"
+  - "OtherLogs"
+  - "SlaveLaunchLogs"
+  - "GCLogs"
+  - "AgentsConfigFile"
+  - "SlaveLogs"
+  - "OtherConfigFilesComponent"
+  - "AboutBrowser"
+  nagDisabled: false
+beekeeper:
+  enabled: true
+  securityWarnings:
+    enabledForCore: true
+    enabledForPlugins: true
+  upgrades:
+    autoDowngradePlugins: false
+    autoUpgradePlugins: false
+license:
+  certificate: |
+    -----BEGIN CERTIFICATE-----
+    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
+    A1UdIwRuMGyAFHISK7P7nsUgjFbT3xYVr61zJKHQoU6kTDBKMQswCQYDVQQGEwJV
+    UzERMA8GA1UECAwIRGVsYXdhcmUxDjAMBgNVBAcMBUxld2VzMRgwFgYDVQQKDA9D
+    bG91ZEJlZXMsIEluYy6CBAHpMVEwggkfBgorBgEEAYKpfwEHBIIJDwSCCQsKLS0t
+    LS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUdmakNDQkdhZ0F3SUJBZ0lFQWVr
+    eFVUQU5CZ2txaGtpRzl3MEJBUVVGQURCS01Rc3dDUVlEVlFRR0V3SlYKVXpFUk1B
+    OEdBMVVFQ0F3SVJHVnNZWGRoY21VeERqQU1CZ05WQkFjTUJVeGxkMlZ6TVJnd0Zn
+    WURWUVFLREE5RApiRzkxWkVKbFpYTXNJRWx1WXk0d0hoY05Nakl3TnpBNE1EQXdN
+    REF3V2hjTk1qSXhNakExTWpNMU9UVTVXakNDCkFub3hFVEFQQmdvckJnRUVBWUtw
+    ZndFQkV3RXpNVEF3TGdZS0t3WUJCQUdDcVg4QkFoTWdPR001TVRJMlpXSTMKTXpS
+    ak5UVTFOVFV6TWpCak5EUTJNVGxtWkdFeE16Z3hGVEFUQmdzckJnRUVBWUtwZndF
+    TERoTUVkSEoxWlRFVgpNQk1HQ3lzR0FRUUJncWwvQVFzTkV3UjBjblZsTVJVd0V3
+    WUxLd1lCQkFHQ3FYOEJDeEFUQkhSeWRXVXhGVEFUCkJnc3JCZ0VFQVlLcGZ3RUxE
+    eE1FZEhKMVpURVZNQk1HQ3lzR0FRUUJncWwvQVFzS0V3UjBjblZsTVJVd0V3WUwK
+    S3dZQkJBR0NxWDhCQ3d3VEJIUnlkV1V4RlRBVEJnc3JCZ0VFQVlLcGZ3RUxDeE1F
+    ZEhKMVpURVZNQk1HQ3lzRwpBUVFCZ3FsL0FRc1JFd1IwY25WbE1SVXdFd1lMS3dZ
+    QkJBR0NxWDhCQ3djVEJIUnlkV1V4RlRBVEJnc3JCZ0VFCkFZS3Bmd0VMQmhNRWRI
+    SjFaVEVWTUJNR0N5c0dBUVFCZ3FsL0FRc0pFd1IwY25WbE1SVXdFd1lMS3dZQkJB
+    R0MKcVg4QkN3Z1RCSFJ5ZFdVeEZUQVRCZ3NyQmdFRUFZS3Bmd0VMQXhNRWRISjFa
+    VEVWTUJNR0N5c0dBUVFCZ3FsLwpBUXNDRXdSMGNuVmxNUlV3RXdZTEt3WUJCQUdD
+    cVg4QkN3VVRCSFJ5ZFdVeEZUQVRCZ3NyQmdFRUFZS3Bmd0VMCkJCTUVkSEoxWlRF
+    Vk1CTUdDeXNHQVFRQmdxbC9BUXNCRXdSMGNuVmxNUlV3RXdZTEt3WUJCQUdDcVg4
+    QkN4UVQKQkhSeWRXVXhGVEFUQmdzckJnRUVBWUtwZndFTEZSTUVkSEoxWlRFVE1C
+    RUdDaXNHQVFRQmdxbC9BUU1UQXpFdwpNREVVTUJJR0Npc0dBUVFCZ3FsL0FRNFRC
+    REUxTURBeEZUQVRCZ29yQmdFRUFZS3Bmd0VKRXdWbVlXeHpaVEVaCk1CY0dBMVVF
+    QXhNUVkyOXVkR2x1Wlc1MFlXd3RZUzFwZERFSk1BY0dBMVVFQ3hNQU1SWXdGQVlM
+    S3dZQkJBR0MKcVg4QkN4Z1RCV1poYkhObE1JSUJJakFOQmdrcWhraUc5dzBCQVFF
+    RkFBT0NBUThBTUlJQkNnS0NBUUVBd0hUbApTVjRHMUJudGRHOFBrN1BVKy94Lzhl
+    Q2J6c0xuYk1PeTY5WTV6THVuWXVzMTNVVWN5UUhoQzM2MW9tVGJJWkRYCnpLZ05H
+    dVZtbUpFRW1vWVNPZEhkSVNYTEw0bExhaE9CbHEzZWhSTkZrS2diZ2Y3WmlHaWZX
+    dnc1YkFOMjFIK0MKK3pHdVNKUzl5dkI0dDl6enBabHFTVlhIVzY2NUVtcDYwN3Jl
+    azMwZE1HMVFkYXpGVC9pUzZWTGF3YVVMcFRxZAp6bWNxVW1CdVE0WW5icGxIeG42
+    RUxUTW9jU3FZbFU1Q2c1Y21VMGtaV0haVmpwYjkwcjFZUGRQOUdXdDZNVW13CjRM
+    WFRxbnpVVldLVzBUeGhibkFONUk1Nmg5VjVtOWlsZzh2SERCZWpTejdOUjZFYTlP
+    NGNCckt5aGZ1aFB2ZjgKeXB0V3pZb2ZVeURXTDJHd2JRSURBUUFCb3pvd09EQU1C
+    Z05WSFJNRUJUQURBUUgvTUIwR0ExVWREZ1FXQkJSeQpFaXV6KzU3RklJeFcwOThX
+    RmErdGN5U2gwREFKQmdOVkhTTUVBakFBTUEwR0NTcUdTSWIzRFFFQkJRVUFBNElD
+    CkFRQ0Z2ekRORWVwVUYyMFErZzBhS0Y0SlpYbDVvdUZnSzR1cGFjUDM3MFI4S1hD
+    Q25UdnJSSVpVb25TVWoyVUMKMUNYeVA0MFhwaFoxL0lBRmxkRVJxSjlmdjN1OTEv
+    aUVmR3I1YTdZMndJWnd3Zmk2U3cxS2dPcytsMFgzWHJDMAo3bGIrUXA2anJIbDh5
+    S0pEMit0K0JEYVBnOEdrSlZmenI3YmZzVVl4Q1M3Q0lNU2dhaHFsc09GaWloMk9u
+    ZHRlCkYxOHRManZvcnRSR2xhMUp0SkwydisyaWJDazJFMzJ2WVI0MWNnN1YyVWJo
+    Tko2SWxJd1JCT24vaFJBcjd0YysKV1N5M1RHb21BZkVoTkNWNEJOR3JJOG5jRHNs
+    UldhZnJpSHJZOStJNDNpR250RkxWVDl5ZzFwa1BsM09mRmJFZwpDWHJrckVGbGNq
+    bXVxeWE1OUgyMjBpMjNDUC8xcEc2Q0d0ME5EbGl1V2t0OHl5VjhlTzQ3VXZFT2ZQ
+    TmRzK3lrCnhmUWY0QWd6ZGhWbDRhNFY3T3ZDaUxOcEpaNC8zU1BrOHB3SjlQS1BN
+    eTUrVG85N0VYRWJ4WllSdXZDQm9XSHkKL0ZIQVdMWmNWWnZ2am5VQmxNcFJMSExq
+    aENaSUJkWENQS1M3RFFQeEFycWkxUjJHc3FubGluYWJaY1lNUWw3egpMYnN0VWZh
+    TDZzQkROMVRDWXFUeGNFUXB3U0ZlYnBSa3lSVmMvOUYxTmYxZmxLVUhidmdjSkdV
+    NTBDMW9BbGlJClNJQTNES3JNZGRNbXRKRWk2YXRVZEJGWVpUaHZFRjUzSTIrUFBz
+    ZmZCY3p5YlA0Rnpjc2RiNExKQ3RMRmluL2oKd3JzOXN6dGtsSUxXRE1aYnZmMDZp
+    ZGQ5NGJGZ0kxa1Jjbnk4ZTgyQ1JOK21BUT09Ci0tLS0tRU5EIENFUlRJRklDQVRF
+    LS0tLS0KCjANBgkqhkiG9w0BAQUFAAOCAQEAffeulq6qDhDNbex8UpG8S0WyhanB
+    BsnhsBiM0u5X9tQPhuZD6qKlpZV9Sxdfbks45EBOY01W2jjRUBIN0EEonEbHvWr8
+    vMg8bSJEzd/t1J9Zu5VnoQv5sYX2f45mSt4+tqHmF9Qh+BwdU+esLr/5WRCYPraA
+    JAxLpq4AL7JUPzhOmzt0JxT2Vjr5f26276MMYyDcKP53tAj+CBXw3peBbEL+6RQS
+    P+PGTRkSzyFSL5Iym4l2gTkVQSej0W96s9m7VGRxgz8HwjC3HqA5Pd7vmRBt5p51
+    IxDAzrtZKsxwY407nq04ztZJTrS15ADaQKocy1c8zxvlkOAoK7mVUbgBMA==
+    -----END CERTIFICATE-----
+  key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEowIBAAKCAQEAlr9gjvqXqJfEaLW8KiaLlcF+X8lhtUueVwfiIEq3TcLV15Or
+    pYTDR7bnNYrt0DAlwvkFI7+ohbORmXcxd6jsRKbcuuTrVwqncq4boQuJvj21/i+G
+    86g9u+WkRYaqI4KuAZLUnGfAad1KFE/mleVrDXtE16IUNsWL6doCcgXHhrnIgZ6P
+    z53hVOj+CrBOZUyE+SzvoIf4o1tr5Ept5z925DBVMmhCP475YxO2TCsNWQVSTVWX
+    A8U97ZtLgcrHWRN1b4yys+ma1QSwH2K5yVhLJXU066B956uLQLosrCeXgO7AkjLp
+    1LMlhWieoz+2+HA2F/X1m82aBBxHcja9lh8gcwIDAQABAoIBAFuOiJrOYGYpJ0Vh
+    e5MuLgEasCKFMS7napf5VcG/H22/NBnmuo2hAOoBkJPYeW/EjmrIy/JWaYgq8/d9
+    iTHgCv/3SIDKoJURB3qDfIxncZV17Z8gRpqeSEBizU7c52EB8aVLBI6qBRdHK8MC
+    dE3+NPLPN5SwAA70FHJH0sxl7jVIlN11I44N8x5e6f/vt1JIGl1Rfs7uaKIOWOtN
+    l0aMvFuyVieBBV/h/LcgQYatlLRZAsBH4Ap2rwCo413Iut0eLslPUHgk/dqTn3np
+    7GZ07vvIAvvXsTA+JUc43WXbFHVm5GTHgKGTMKTspC/srWlWqVeT4krVVHWPHy12
+    EvCFvSECgYEA8+wZpzzaHUjNyfy1frR+vryG5YHgHX93yXRixWLXRSiZp+6L/7Kt
+    Dxboj5Mn3HJuNyg9Ju/PbKK2tm3x6HUlV3D2Wt+qlcgYzPYxIgzbqoxqpYkxtAMe
+    gRyKttp5+ShJDo4+WEb5G00Iy/5Sp9B3Ky/XkGMJHIS3kMfG3oo4rXUCgYEAnjY3
+    izFhxIi10IcjcACpQ9KHjaeCr0Y23WqW1g0qqiDAeEHvrW+wALk3DuhAUfJCRG1K
+    pysLcZiI65O7E2KmZL6RPOW7AahMHYYBHCVWcMtRAYgucO63jhTdVrLhi2inLQoh
+    WTt7Tjakc+rRclEvfMgU97bT4QNe66HI9UHRUUcCgYEAs+9yCR1ppPqk3CDwXfSW
+    HuwB8uH4yqnSWqjhh8xfEuRdXTUqz0gmQ6BZlDgwyn0bctLbMZLsB66MbEz0i8+G
+    6VcqVGT0eKNwMBpYqk6j6M7GiTCImstGQGYmqbbHDZa7NeKWeRZ6Arq0B4+nt6Wf
+    kxsqwJdeDEyXAVVuDZIXN1UCgYAhBlAxze0KiT7qeEr9ZiXu8lM5Tm4JCC8LqOQz
+    aiwttwh2Ec1l9ppWjFLh2bkTYe5TOj0LCAErhRuPkRbLxRvWi7DldU7D2c2JnB8/
+    MMwKX2ZZW4PWLv5Bujk5j71kzEOZMzQi3Dew69cIG0v9ANVYxqsZyiAQKBP4O50n
+    FMYMoQKBgAazCltuJ6Qo4sCiLkU1A8/ahIIFvPmKRP7Y2ymXZmCdWQyYl5qwwKg/
+    jYFV5NzjjFc4oavtLQ7xkIpClnLi/2NlHpdqjVQU5vWep9vMwIZUzU/kopB+pJ1b
+    mgdtEBi8w2O8RRpUaXKxBWB5bKFhE+bmQiyEHfFH8wqPMGYfKOLB
+    -----END RSA PRIVATE KEY-----
+support:
+  automatedBundleConfiguration:
+    componentIds:
+    - "CloudBeesAssuranceSupport"
+    - "CloudBeesCasCBundlesSupport"
+    - "AgentsConfigFile"
+    - "ConfigFileComponent"
+    - "OtherConfigFilesComponent"
+    - "AboutBrowser"
+    - "AboutJenkins"
+    - "AboutUser"
+    - "AdministrativeMonitors"
+    - "AgentProtocols"
+    - "BuildQueue"
+    - "CustomLogs"
+    - "DumpExportTable"
+    - "EnvironmentVariables"
+    - "FileDescriptorLimit"
+    - "GCLogs"
+    - "HeapUsageHistogram"
+    - "ItemsContent"
+    - "AgentsJVMProcessSystemMetricsContents"
+    - "MasterJVMProcessSystemMetricsContents"
+    - "JenkinsLogs"
+    - "LoadStats"
+    - "LoggerManager"
+    - "Metrics"
+    - "NetworkInterfaces"
+    - "NodeMonitors"
+    - "OtherLogs"
+    - "ReverseProxy"
+    - "RootCAs"
+    - "RunningBuilds"
+    - "SlaveCommandStatistics"
+    - "SlaveLaunchLogs"
+    - "SlaveLogs"
+    - "AgentsSystemConfiguration"
+    - "MasterSystemConfiguration"
+    - "SystemProperties"
+    - "TaskLogs"
+    - "ThreadDumps"
+    - "UpdateCenter"
+    - "UserCount"
+    - "ComponentImpl"
+    - "SlowRequestComponent"
+    - "HighLoadComponent"
+    - "DeadlockRequestComponent"
+    - "OperationsCenterSupportComponent"
+    - "PipelineTimings"
+    - "PipelineThreadDump"
+    enabled: true
+    period: 1
+globalCredentialsConfiguration:
+  configuration:
+    providerFilter: "none"
+    typeFilter: "none"
+aws:
+  awsCredentials:
+    credentialsId: "CIPF-S3"
+    region: "eu-central-1"
+  s3:
+    container: "cloudbees-prod"
+    disableSessionToken: false
+    prefix: "hcp2/"
+    useHttp: false
+    usePathStyleUrl: false
+    useTransferAcceleration: false
+security:
+  anonymizeSupportBundle:
+    enabled: true
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  copyartifact:
+    mode: PRODUCTION
+  sSHD:
+    port: -1
+  scriptApproval:
+    approvedSignatures:
+    - "method hudson.model.ItemGroup getItem java.lang.String"
+    - "method hudson.model.Run getLog"
+    - "method hudson.model.Run getPreviousBuild"
+    - "method hudson.model.Run getTimestamp"
+    - "method org.jenkinsci.plugins.workflow.support.steps.build.RunWrapper getRawBuild"
+    - "new java.util.GregorianCalendar"
+    - "staticMethod hudson.model.Hudson getInstance"
+    - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods getAt java.lang.Object\
+      \ java.lang.String"
+    - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods size java.util.regex.Matcher"
+unclassified:
+  ansiColorBuildWrapper:
+    colorMaps:
+    - black: "#000000"
+      blackB: "#4C4C4C"
+      blue: "#1E90FF"
+      blueB: "#4682B4"
+      cyan: "#00CDCD"
+      cyanB: "#00FFFF"
+      green: "#00CD00"
+      greenB: "#00FF00"
+      magenta: "#CD00CD"
+      magentaB: "#FF00FF"
+      name: "xterm"
+      red: "#CD0000"
+      redB: "#FF0000"
+      white: "#E5E5E5"
+      whiteB: "#FFFFFF"
+      yellow: "#CDCD00"
+      yellowB: "#FFFF00"
+    - black: "#000000"
+      blackB: "#555555"
+      blue: "#0000AA"
+      blueB: "#5555FF"
+      cyan: "#00AAAA"
+      cyanB: "#55FFFF"
+      defaultBackground: 0
+      defaultForeground: 7
+      green: "#00AA00"
+      greenB: "#55FF55"
+      magenta: "#AA00AA"
+      magentaB: "#FF55FF"
+      name: "vga"
+      red: "#AA0000"
+      redB: "#FF5555"
+      white: "#AAAAAA"
+      whiteB: "#FFFFFF"
+      yellow: "#AA5500"
+      yellowB: "#FFFF55"
+    - black: "black"
+      blackB: "black"
+      blue: "blue"
+      blueB: "blue"
+      cyan: "cyan"
+      cyanB: "cyan"
+      green: "green"
+      greenB: "green"
+      magenta: "magenta"
+      magentaB: "magenta"
+      name: "css"
+      red: "red"
+      redB: "red"
+      white: "white"
+      whiteB: "white"
+      yellow: "yellow"
+      yellowB: "yellow"
+    - black: "#2E3436"
+      blackB: "#2E3436"
+      blue: "#3465A4"
+      blueB: "#3465A4"
+      cyan: "#06989A"
+      cyanB: "#06989A"
+      defaultBackground: 0
+      defaultForeground: 7
+      green: "#4E9A06"
+      greenB: "#4E9A06"
+      magenta: "#75507B"
+      magentaB: "#75507B"
+      name: "gnome-terminal"
+      red: "#CC0000"
+      redB: "#CC0000"
+      white: "#D3D7CF"
+      whiteB: "#D3D7CF"
+      yellow: "#C4A000"
+      yellowB: "#C4A000"
+  artifactManager:
+    artifactManagerFactories:
+    - jclouds:
+        provider: "s3"
+  artifactoryBuilder:
+    jfrogInstances:
+    - artifactoryUrl: "https://eu.artifactory.conti.de/artifactory"
+      bypassProxy: true
+      connectionRetry: 3
+      deployerCredentialsConfig:
+        credentialsId: "uidu234z_artifactory_token"
+        overridingCredentials: false
+        password: "{AQAAABAAAAAQmO59fn0GUqhqz/wVAXo8bhycZm4qYOj/utARaaHAWbQ=}"
+        username: "****"
+      deploymentThreads: 3
+      distributionUrl: "https://eu.artifactory.conti.de/distribution"
+      instanceId: "eu-https"
+      platformUrl: "https://eu.artifactory.conti.de"
+      timeout: 300
+    jfrogPipelinesServer:
+      bypassProxy: false
+      connectionRetries: 3
+      credentialsConfig:
+        ignoreCredentialPluginDisabled: true
+        overridingCredentials: false
+        password: "{AQAAABAAAAAQEYosa434HbaeEcW+Go3FlDpUzNvUvnmpIjGyEbbyFRo=}"
+        username: "****"
+      timeout: 300
+    useCredentialsPlugin: true
+  bitbucketEndpointConfiguration:
+    endpoints:
+    - bitbucketCloudEndpoint:
+        enableCache: false
+        manageHooks: false
+        repositoriesCacheDuration: 0
+        teamCacheDuration: 0
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  cloudBeesSCMReporting:
+    enabled: false
+  cloudbeesPlatform:
+    server:
+      apiUrl: "https://flow-server.cloudbees-prod:8443/"
+      ignoreSslConnectionErrors: true
+    url: "https://ci.adas-cip.conti.de/"
+  email-ext:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: |-
+      $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+      Check console output at $BUILD_URL to view the results.
+    defaultContentType: "text/plain"
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    defaultTriggerIds:
+    - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: -1
+    precedenceBulk: false
+    watchingEnabled: false
+  experimentalPlugins:
+    enabled: false
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+    endpoints:
+    - apiUri: "https://github-am.geo.conti.de/api/v3"
+      name: "github-am-geo-conti"
+    - apiUri: "https://github.geo.conti.de/api/v3"
+      name: "github-geo-conti"
+  gitHubPluginConfig:
+    configs:
+    - apiUrl: "https://github-am.geo.conti.de/api/v3"
+      credentialsId: "uidt820z_github_token"
+      name: "Conti AM Github"
+    - apiUrl: "https://github.geo.conti.de/api/v3"
+      credentialsId: "uidt820z_github_token"
+      name: "Conti Github"
+    hookUrl: "https://ci.adas-cip.conti.de/hibernation/queue/hcp2/github-webhook/"
+  gitSCM:
+    addGitTagAction: false
+    allowSecondFetch: false
+    createAccountBasedOnEmail: false
+    disableGitToolChooser: false
+    hideCredentials: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "bricks_pipeline_lib"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              credentialsId: "uidt820z_ssh"
+              id: "fd2c2c66-322c-4d49-bf28-7638a41c9e5f"
+              remote: "git@github-am.geo.conti.de:ADCU-CIP/bricks_pipeline_lib.git"
+    - defaultVersion: "master"
+      name: "cip_jenkins_lib"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              credentialsId: "uidt820z_ssh"
+              id: "e1a73065-909a-427d-beb4-57271154d237"
+              remote: "git@github-am.geo.conti.de:ADAS/cip_jenkins_lib.git"
+  hibernationConfiguration:
+    activities:
+    - "build"
+    - "web"
+    enabled: true
+    gracePeriod: 3600
+  ivyBuildTrigger:
+    extendedVersionMatching: false
+  junitTestResultStorage:
+    storage: "file"
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "https://ci.adas-cip.conti.de/hcp2/"
+  lockableResourcesManager:
+    declaredResources:
+    - labels: "QAF_LICENSE"
+      name: "qaf1"
+    - labels: "QAF_LICENSE"
+      name: "qaf2"
+    - labels: "QAF_LICENSE"
+      name: "qaf3"
+    - labels: "QAF_LICENSE"
+      name: "qaf4"
+    - labels: "QAF_LICENSE"
+      name: "qaf5"
+    - labels: "QAF_LICENSE"
+      name: "qaf6"
+    - labels: "QAF_LICENSE"
+      name: "qaf7"
+    - labels: "QAF_LICENSE"
+      name: "qaf8"
+    - labels: "QAF_LICENSE"
+      name: "qaf9"
+    - labels: "QAF_LICENSE"
+      name: "qaf10"
+    - labels: "QNX_LICENSE"
+      name: "qnx1"
+    - labels: "QNX_LICENSE"
+      name: "qnx2"
+    - labels: "QNX_LICENSE"
+      name: "qnx3"
+    - labels: "QNX_LICENSE"
+      name: "qnx4"
+    - labels: "QNX_LICENSE"
+      name: "qnx5"
+    - labels: "QNX_LICENSE"
+      name: "qnx6"
+    - labels: "QNX_LICENSE"
+      name: "qnx7"
+    - labels: "QNX_LICENSE"
+      name: "qnx8"
+    - labels: "QNX_LICENSE"
+      name: "qnx9"
+    - labels: "QNX_LICENSE"
+      name: "qnx10"
+    - labels: "QNX_LICENSE"
+      name: "qnx11"
+    - labels: "QNX_LICENSE"
+      name: "qnx12"
+    - labels: "QNX_LICENSE"
+      name: "qnx13"
+    - labels: "QNX_LICENSE"
+      name: "qnx14"
+    - labels: "QNX_LICENSE"
+      name: "qnx15"
+    - labels: "QNX_LICENSE"
+      name: "qnx16"
+    - labels: "QNX_LICENSE"
+      name: "qnx17"
+    - labels: "QNX_LICENSE"
+      name: "qnx18"
+    - labels: "QNX_LICENSE"
+      name: "qnx19"
+    - labels: "QNX_LICENSE"
+      name: "qnx20"
+    - labels: "QNX_LICENSE"
+      name: "qnx21"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  mavenModuleSet:
+    localRepository: "default"
+  operationsCenterRootAction:
+    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAB2NSxLCIBAF78LaIZKAxlwjJxiYwaiUUHx0YXl3ict+1V3vI64Zn1UsYh6NVwYN\r\
+      \nTNqfQCsmuBBqIFRK69lOfBzFQdyou2fYXNqp5dBxqzUtw+Du0UkXYiPLXCDlSLK89qmVylmG6DD8\r\
+      \nraGnb7ZrdA/u3x5D4e8PnDYDF4sAAAA=\r\n----- END CONNECTION DETAILS -----\n"
+  pluginImpl:
+    enableCredentialsFromNode: false
+  pollSCM:
+    pollingThreadCount: 10
+  prismConfiguration:
+    theme: PRISM
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - credentialsId: "sonarqube_token"
+      name: "SonarQube"
+      serverUrl: "https://adas-sonarqube.cmo.conti.de/"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
+  timestamper:
+    allPipelines: true
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+  upstream:
+    globalUpstreamFilterStrategy: UseOldest
+  usageStatisticsCloudBees:
+    disabledJenkinsUsageStatistics: true
+    usageStatisticsCollected: true
+  warningsParsers:
+    consoleLogScanningPermitted: false
+tool:
+  cloudbeesPluginUsageAnalyzer:
+    enabled: true
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"
