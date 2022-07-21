@@ -1,0 +1,2363 @@
+removeStrategy:
+  rbac: SYNC
+  items: NONE
+items:
+- kind: multibranch
+  name: hcp2
+  description: HCP2 MotionWise platform
+  displayName: hcp2
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_afw_hcp_recorder
+  description: HCP2 MotionWise platform
+  displayName: hcp2_afw_hcp_recorder
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: -1
+      abortBuilds: false
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_afw_hcp_recorder
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_afw_hcp_recorder
+      strategy:
+        allBranchesSame: {}
+- kind: multibranch
+  name: hcp2_afw_rdm
+  description: HCP2 MotionWise platform
+  displayName: hcp2_afw_rdm
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: -1
+      abortBuilds: false
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_afw_rdm
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_afw_rdm
+      strategy:
+        allBranchesSame: {}
+- kind: multibranch
+  name: hcp2_afw_vermod
+  description: HCP2 MotionWise platform
+  displayName: hcp2_afw_vermod
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_afw_vermod
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_afw_vermod
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_afw_xcp
+  description: HCP2 MotionWise platform
+  displayName: hcp2_afw_xcp
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_afw_xcp
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_afw_xcp
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_bsp
+  description: hcp2_bsp
+  displayName: hcp2_bsp
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_bsp
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_bsp
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_bsp_pparinfo
+  description: Read PPAR structure from SRAM
+  displayName: hcp2_bsp_pparinfo
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_bsp_pparinfo
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_bsp_pparinfo
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_bsp_qnx
+  description: QNX Board Support Package
+  displayName: hcp2_bsp_qnx
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_bsp_qnx
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_bsp_qnx
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_bsp_release
+  description: VW/AUDI HCP2 project repository
+  displayName: hcp2_bsp_release
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_bsp_release
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_bsp_release
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_common_lum
+  description: Shared library for LUM components (e.g. integration interfaces)
+  displayName: hcp2_common_lum
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_common_lum
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_common_lum
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_conti_bootloader
+  displayName: hcp2_conti_bootloader
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_conti_bootloader
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_conti_bootloader
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_diagmaster
+  description: hcp2_diagmaster
+  disabled: true
+  displayName: hcp2_diagmaster
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_diagmaster
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_diagmaster
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_ecusm_master
+  displayName: hcp2_ecusm_master
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_ecusm_master
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_ecusm_master
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_ecusm_slave
+  description: Repo for EcusmMaster and EcusmSlave SWCs
+  displayName: hcp2_ecusm_slave
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_ecusm_slave
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_ecusm_slave
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_hse_fw
+  displayName: hcp2_hse_fw
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_hse_fw
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_hse_fw
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_hwm
+  description: HCP2 Hardware Manager
+  displayName: hcp2_hwm
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_hwm
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_hwm
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_integration_lum
+  displayName: hcp2_integration_lum
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_integration_lum
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_integration_lum
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_integration_mmh
+  displayName: hcp2_integration_mmh
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_integration_mmh
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_integration_mmh
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_integration_provisions
+  description: HCP2 MotionWise platform
+  displayName: hcp2_integration_provisions
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_integration_provisions
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_integration_provisions
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_integration_sh00
+  description: Repo to build image for HCP2 SH00
+  displayName: hcp2_integration_sh00
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_integration_sh00
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_integration_sh00
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_integration_sil
+  description: HCP2 MotionWise platform
+  displayName: hcp2_integration_sil
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_integration_sil
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_integration_sil
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_integration_sys
+  description: Integration of SWCs into SYS
+  displayName: hcp2_integration_sys
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_integration_sys
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_integration_sys
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_integration_tttech
+  description: Integration of TTTech deliveries for HCP2 Project
+  displayName: hcp2_integration_tttech
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_integration_tttech
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_integration_tttech
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_lcs_master
+  displayName: hcp2_lcs_master
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_lcs_master
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_lcs_master
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_lcs_slave
+  displayName: hcp2_lcs_slave
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_lcs_slave
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_lcs_slave
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_lib_cml
+  description: HCP2 repo for the C-Math library CML
+  displayName: hcp2_lib_cml
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_lib_cml
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_lib_cml
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_lib_ros2
+  description: Provide ROS2 framework in a conan package
+  displayName: hcp2_lib_ros2
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_lib_ros2
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_lib_ros2
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_platform
+  description: Common scripts and tools for HCP2 Software Integration team and Jenkins
+    jobs
+  displayName: hcp2_platform
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_platform
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_platform
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_platform_mw
+  description: HCP2 MotionWise platform
+  displayName: hcp2_platform_mw
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: ''
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_platform_mw
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_platform_mw
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_smh_p_diagproxy
+  description: hcp2_smh_p_diagproxy
+  displayName: hcp2_smh_p_diagproxy
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_smh_p_diagproxy
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_smh_p_diagproxy
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_smh_performance_asr
+  description: hcp2_smh_performance_asr
+  displayName: hcp2_smh_performance_asr
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_smh_performance_asr
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_smh_performance_asr
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_smh_s_iohwab_cdd_swc
+  description: hcp2_smh_s_iohwab_cdd_swc
+  displayName: hcp2_smh_s_iohwab_cdd_swc
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_smh_s_iohwab_cdd_swc
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_smh_s_iohwab_cdd_swc
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_smh_s_ivd
+  description: hcp2_smh_s_ivd
+  displayName: hcp2_smh_s_ivd
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_smh_s_ivd
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_smh_s_ivd
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_smh_s_sfd
+  description: hcp2_smh_s_sfd
+  displayName: hcp2_smh_s_sfd
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_smh_s_sfd
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_smh_s_sfd
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_smh_s_testability
+  description: hcp2_smh_s_testability
+  displayName: hcp2_smh_s_testability
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_smh_s_testability
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_smh_s_testability
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
+- kind: multibranch
+  name: hcp2_smh_safetycore_asr
+  description: hcp2_smh_safetycore_asr
+  displayName: hcp2_smh_safetycore_asr
+  orphanedItemStrategy:
+    defaultOrphanedItemStrategy:
+      pruneDeadBranches: true
+      daysToKeep: -1
+      numToKeep: 20
+      abortBuilds: true
+  projectFactory:
+    workflowBranchProjectFactory:
+      scriptPath: Jenkinsfile
+  properties:
+  - envVars: {}
+  - kubernetesFolderProperty: {}
+  sourcesList:
+  - branchSource:
+      buildStrategies:
+      - buildChangeRequests:
+          ignoreUntrustedChanges: true
+          ignoreTargetOnlyChanges: true
+      - buildRegularBranches: {}
+      - skipInitialBuildOnFirstBranchIndexing: {}
+      source:
+        github:
+          apiUri: https://github-am.geo.conti.de/api/v3
+          traits:
+          - gitHubBranchDiscovery:
+              strategyId: 1
+          - headWildcardFilter:
+              excludes: feature*
+              includes: '*'
+          - cloneOptionTrait:
+              extension:
+                cloneOption:
+                  reference: ''
+                  noTags: false
+                  honorRefspec: false
+                  shallow: false
+                  timeout: 60
+          - gitHubSshCheckout:
+              credentialsId: uidt820z_ssh
+          - cleanBeforeCheckoutTrait:
+              extension:
+                cleanBeforeCheckout:
+                  deleteUntrackedNestedRepositories: true
+          - notificationsSkip: {}
+          - gitHubSCMSourceStatusChecksTrait:
+              suppressLogs: false
+              name: Jenkins
+              skip: true
+              skipNotifications: true
+              skipProgressUpdates: false
+              unstableBuildNeutral: false
+          repoOwner: ADAS
+          credentialsId: github-app-cjoc-hcp2-jenkins-adas
+          id: e068b0a4-30b4-4784-b485-fede8b979458
+          repository: hcp2_smh_safetycore_asr
+          configuredByUrl: true
+          repositoryUrl: https://github-am.geo.conti.de/ADAS/hcp2_smh_safetycore_asr
+      strategy:
+        allBranchesSame: {}
+  trigger:
+    periodicFolderTrigger:
+      interval: 2d
