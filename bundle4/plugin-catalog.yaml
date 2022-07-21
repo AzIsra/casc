@@ -1,0 +1,75 @@
+type: plugin-catalog
+version: '1'
+name: bricks-prod
+displayName: Bricks productive plugin catalog
+configurations:
+- description: Bricks Plugin Set dev
+  includePlugins:
+    Parameterized-Remote-Trigger:
+      version: 3.1.6.1
+    ansicolor:
+      version: 1.0.1
+    artifactory:
+      version: 3.16.3
+    async-http-client:
+      version: 1.7.24.3
+    aws-java-sdk:
+      version: 1.12.215-339.vdc07efc5320c
+    aws-java-sdk-cloudformation:
+      version: 1.12.215-339.vdc07efc5320c
+    aws-java-sdk-codebuild:
+      version: 1.12.215-339.vdc07efc5320c
+    aws-java-sdk-ecr:
+      version: 1.12.215-339.vdc07efc5320c
+    aws-java-sdk-ecs:
+      version: 1.12.215-339.vdc07efc5320c
+    aws-java-sdk-iam:
+      version: 1.12.215-339.vdc07efc5320c
+    aws-java-sdk-logs:
+      version: 1.12.215-339.vdc07efc5320c
+    aws-java-sdk-ssm:
+      version: 1.12.215-339.vdc07efc5320c
+    basic-branch-build-strategies:
+      version: 1.3.2
+    buildtriggerbadge:
+      version: 251.vdf6ef853f3f5
+    cloud-stats:
+      version: '0.27'
+    code-coverage-api:
+      version: 2.0.4
+    conti-cloud-plugin:
+      url: https://eu.artifactory.conti.de/artifactory/ait_ea_jenkins-plugins_generic_l/releases/ITEA/conti-cloud-plugin/2.4.3/conti-cloud-plugin-2.4.3.hpi
+    embeddable-build-status:
+      version: 235.v27da_06040f5f
+    extended-read-permission:
+      version: '3.2'
+    git-forensics:
+      version: 1.9.0
+    github-checks:
+      version: 1.0.18
+    github-scm-trait-notification-context:
+      version: '1.1'
+    http_request:
+      version: '1.15'
+    ivy:
+      version: '2.2'
+    managed-master-hibernation:
+      version: 1.6
+    lockable-resources:
+      version: '2.15'
+    monitoring:
+      version: 1.91.0
+    pipeline-aws:
+      version: '1.43'
+    pipeline-github:
+      version: 2.8-138.d766e30bb08b
+    pipeline-utility-steps:
+      version: 2.12.0
+    resource-disposer:
+      version: '0.19'
+    skip-notifications-trait:
+      version: 1.0.5
+    sonar:
+      version: '2.14'
+    ws-cleanup:
+      version: '0.42'
